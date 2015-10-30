@@ -1,0 +1,13 @@
+@(articles: List[Article])
+
+@blog.main("Welcome to My Blog") {
+
+    <h2>Current Blog Entries</h2>
+
+    <ul>
+        @for(article <- articles) {
+            <li><a href="@(routes.Blog.show(article.id))">@article.getTitle()</a></li>
+        }
+    </ul>
+
+}

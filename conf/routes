@@ -1,0 +1,54 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# The following 3 routes are from the tutorial
+
+# Home page
+GET     /                           controllers.Application.index()
+
+# This is an endpoint for creating a person
+POST    /person                     controllers.Application.addPerson()
+
+# This is an endpoint for listing persons (This is a JSON endpoint)
+GET     /persons                    controllers.Application.getPersons()
+
+
+
+# Our first attempt at creating some Blog routes
+# here we have nice route names, but all of our actions are in the
+# Application controller. If we keep adding all of our routes to a single
+# controller, then our code will become unmanageable as it grows.
+#GET     /blogs                      controllers.Application.listBlogs()
+#GET     /blogs/new                  controllers.Application.newBlog()
+#POST    /blogs                      controllers.Application.createBlog()
+#GET     /blogs/:id                  controllers.Application.showBlog(id: Long)
+
+
+
+
+
+# Restful Routes Example
+# We allow some CRUD operations on Resources
+# You are free to name them as you like. But it is important to be consistent
+# and descriptive.
+GET     /people                     controllers.People.index()
+GET     /people/new                 controllers.People.form()
+GET     /people/:id                 controllers.People.show(id: Long)
+DELETE  /people/:id                 controllers.People.delete(id: Long)
+GET     /people/:id/edit            controllers.People.edit(id: Long)
+PUT     /people/:id                 controllers.People.update(id: Long)
+POST    /people                     controllers.People.create()
+
+
+# A blog as mocked up in week 1.
+# Here I created a separate Blog controller to manage the Action methods of
+# my applications Blogging feature.
+GET     /blogs                      controllers.Blog.index()
+GET     /blogs/new                  controllers.Blog.form()
+POST    /blogs                      controllers.Blog.create()
+GET     /blogs/:id                  controllers.Blog.show(id: Long)
+
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
