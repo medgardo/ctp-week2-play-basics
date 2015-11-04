@@ -6,7 +6,7 @@
 
     <ul>
         @for(article <- articles) {
-            <li><a href="@(routes.Blog.show(article.id))">@article.getTitle()</a></li>
+            <li><a href="@(routes.Blog.show(article.id))">@article.title</a></li>
         }
     </ul>
 
